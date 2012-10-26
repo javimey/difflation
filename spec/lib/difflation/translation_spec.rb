@@ -2,9 +2,10 @@ require 'spec_helper'
 
 describe Difflation::Transdifflation do
   before :each do
-    @test_file = { :en => { :door => "door", :nested => {:another => "Call for simbolize", :one_more => "Hi World"}, :other => "Look ma"}}
-    @dest_file = { :es => { :door => "**NOT TRANSLATED** door", :nested => {:another => "**NOT TRANSLATED** Call for simbolize", :one_more => "**NOT TRANSLATED** Hi World"}, :other => "**NOT TRANSLATED** Look ma"}}
+    @dest_file = { :door => "**NOT TRANSLATED** door", :nested => {:another => "**NOT TRANSLATED** Call for simbolize", :one_more => "**NOT TRANSLATED** Hi World"}, :other => "**NOT TRANSLATED** Look ma"}
     @new_translation = Difflation::Transdifflation.new(@test_file, :en, :es)
+    @new_translation.stub(:origin).and_return({ :door => "door", :nested => {:another => "Call for simbolize", :one_more => "Hi World"}, :other => "Look ma"})
+    @new_translation.stub(:destination).and_return({})
   end
 
   context :initialize do
