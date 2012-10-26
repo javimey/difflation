@@ -15,5 +15,9 @@ module Difflation
       )
       result
     end
+
+    def coverage
+      Compare.coverage.tap
+    end
   end
 end

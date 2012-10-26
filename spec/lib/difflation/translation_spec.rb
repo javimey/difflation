@@ -4,6 +4,7 @@ describe Difflation::Transdifflation do
   before :each do
     @test_file = { :en => { :door => "door", :nested => {:another => "Call for simbolize", :one_more => "Hi World"}, :other => "Look ma"}}
     @dest_file = { :es => { :door => "**NOT TRANSLATED** door", :nested => {:another => "**NOT TRANSLATED** Call for simbolize", :one_more => "**NOT TRANSLATED** Hi World"}, :other => "**NOT TRANSLATED** Look ma"}}
+    @cover_rate = 0.0
     @new_translation = Difflation::Transdifflation.new(@test_file, :en, :es)
   end
 
@@ -21,5 +22,9 @@ describe Difflation::Transdifflation do
 
   it "generates a translated file" do
     @new_translation.translate.should == @dest_file
+  end
+  
+  it "returns a coverage rate" do
+    @new_translation.coverage.should == @cover_rate
   end
 end

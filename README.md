@@ -20,7 +20,8 @@ Or install it yourself as:
 
 Tasks:
   1. extract differences from gem/path/...
-  2. coverage (check all app i18n, showing the translated percent (also CI)
+  1.1 gem/path/ -> :locale/gem.yml
+ 2. coverage (check all app i18n, showing the translated percent (also CI)
   3. translations-missing (check all app i18n, telling what is left to translate, generating file or not(ci)
 
 

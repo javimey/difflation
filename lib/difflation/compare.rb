@@ -4,6 +4,10 @@ module Difflation
       compare_hash(origin, destination)
     end
 
+    def self.coverage
+      0.0
+    end
+
     private
     def self.compare_hash(origin, destination={})
       origin.each_pair do |key, value|
