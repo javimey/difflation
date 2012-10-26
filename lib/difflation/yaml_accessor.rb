@@ -3,7 +3,7 @@ module Difflation
 
     def self.get_destination_yaml(source_file, language)
       file = Hash.new
-      file[language] = ''
+      file[language] = Hash.new
       file
     end
 

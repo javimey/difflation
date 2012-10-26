@@ -8,10 +8,12 @@ module Difflation
     end
 
     def translate
-      Compare.generate_diff(
+      result = Hash.new
+      result[to_language] = Compare.generate_diff(
         @source_file[@from_language],
         YamlAccessor.get_destination_yaml(@source_file, @to_language)[@to_language]
       )
+      result
     end
   end
 end

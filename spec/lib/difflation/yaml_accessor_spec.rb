@@ -5,7 +5,7 @@ describe Difflation::YamlAccessor do
     before :each do
     end
     it "generates destination file from a gem" do
-      Difflation::YamlAccessor.get_destination_yaml('/path/to/gem', :locale).should == {:locale => ''}
+      Difflation::YamlAccessor.get_destination_yaml('/path/to/gem', :locale).should == {:locale => {} }
     end
   end
 end

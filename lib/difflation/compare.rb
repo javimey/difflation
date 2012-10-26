@@ -16,7 +16,6 @@ module Difflation
             destination[key] = compare_hash(value)
           end
         else
-          require 'pry'; binding.pry
           destination[key] = "**NOT TRANSLATED** #{value}" unless destination.has_key? key
         end
       end

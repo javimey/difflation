@@ -18,7 +18,15 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Tasks:
+  1. extract differences from gem/path/...
+  2. coverage (check all app i18n, showing the translated percent (also CI)
+  3. translations-missing (check all app i18n, telling what is left to translate, generating file or not(ci)
+
+
+
+
+
 
 ## Contributing
 
