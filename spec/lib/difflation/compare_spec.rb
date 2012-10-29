@@ -7,6 +7,27 @@ describe Difflation::Compare do
       result = { :en => { :home => "**NOT TRANSLATED** home", :door => "**NOT TRANSLATED** door", :nested => {:another => "**NOT TRANSLATED** Call for simbolize"}}}
       Difflation::Compare.generate_diff(origin, {}).should == result
     end
+
+    it "returns a yaml with differences from origin and a given destination" do
+      origin      = { :en => { :home => "home", :door => "door", :nested => {:another => "Call for simbolize"}}}
+      destination = { :en => { :home => "**NOT TRANSLATED** home", :nested => {:another => "Call for simbolize"}}}
+      result      = { :en => { :home => "**NOT TRANSLATED** home", :nested => {:another => "Call for simbolize"}, :door => "**NOT TRANSLATED** door"}}
+      Difflation::Compare.generate_diff(origin, destination).should == result
+    end
+
+    it "returns the same yaml from a translated one" do
+      origin      = { :home => "home" }
+      destination = { :home => "hogar" }
+      result      = { :home => "hogar" }
+      Difflation::Compare.generate_diff(origin, destination).should == result
+    end
+
+    it "returns a yaml origin and a translated destination" do
+      origin      = { :en => { :home => "home", :door => "door", :nested => {:another => "Call for simbolize"}}}
+      destination = { :en => { :home => "hogar", :door => "puerta", :nested => {:another => "Otro"}}}
+      result      = { :en => { :home => "hogar", :door => "puerta", :nested => {:another => "Otro"}}}
+      Difflation::Compare.generate_diff(origin, destination).should == result
+    end
   end
 
   describe :coverage_rate do
