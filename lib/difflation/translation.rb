@@ -21,5 +21,9 @@ module Difflation
     def origin
       YamlAccessor.get_origin_yaml(@source_file, @from_language)
     end
+
+    def coverage
+      Compare.coverage.tap
+    end
   end
 end
