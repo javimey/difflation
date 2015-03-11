@@ -8,7 +8,6 @@ module Difflation
     end
 
     def translate
-      require 'pry';binding.pry
       Compare.generate_diff(origin, destination)
     end
 
