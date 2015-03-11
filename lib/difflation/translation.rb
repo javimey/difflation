@@ -8,12 +8,18 @@ module Difflation
     end
 
     def translate
-      result = Hash.new
-      result[to_language] = Compare.generate_diff(
-        @source_file[@from_language],
-        YamlAccessor.get_destination_yaml(@source_file, @to_language)[@to_language]
-      )
-      result
+      require 'pry';binding.pry
+      Compare.generate_diff(origin, destination)
+    end
+
+    private
+
+    def destination
+      YamlAccessor.get_destination_yaml(@source_file, @to_language)
+    end
+
+    def origin
+      YamlAccessor.get_origin_yaml(@source_file, @from_language)
     end
 
     def coverage
